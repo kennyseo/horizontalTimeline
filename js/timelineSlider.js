@@ -1,6 +1,6 @@
 jQuery(document).ready(function($){
 	var timelines = $('.h-timeline'),
-		eventsMinDistance = 60;
+		eventsDistance = 60;
 
 	(timelines.length > 0) && initTimeline(timelines);
 
@@ -19,9 +19,9 @@ jQuery(document).ready(function($){
 			timelineComponents['eventsContent'] = timeline.children('.event-body');
 
 			//assign a left postion to the single events along the timeline
-			setDatePosition(timelineComponents, eventsMinDistance);
+			setDatePosition(timelineComponents, eventsDistance);
 			//assign a width to the timeline
-			var timelineTotWidth = setTimelineWidth(timelineComponents, eventsMinDistance);
+			var timelineTotWidth = setTimelineWidth(timelineComponents, eventsDistance);
 			//the timeline has been initialize - show it
 			timeline.addClass('loaded');
 
@@ -72,8 +72,8 @@ jQuery(document).ready(function($){
 			wrapperWidth = Number(timelineComponents['timelineWrapper'].css('width').replace('px', ''));
 		//translate the timeline to the left('next')/right('prev')
 		(string == 'next')
-			? translateTimeline(timelineComponents, translateValue - wrapperWidth + eventsMinDistance, wrapperWidth - timelineTotWidth)
-			: translateTimeline(timelineComponents, translateValue + wrapperWidth - eventsMinDistance);
+			? translateTimeline(timelineComponents, translateValue - wrapperWidth + eventsDistance, wrapperWidth - timelineTotWidth)
+			: translateTimeline(timelineComponents, translateValue + wrapperWidth - eventsDistance);
 	}
 
 	function showNewContent(timelineComponents, timelineTotWidth, string) {
